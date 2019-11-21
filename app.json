@@ -27,6 +27,13 @@
       "supportsTablet": true
     },
     "facebookAppId": "2472947696328285",
-    "facebookScheme": "fb2472947696328285"
+    "facebookScheme": "fb2472947696328285",
+    "facebookDisplayName": "PetApp",
+    "extra": {
+      "googleAppId": {
+        "ios": "636490882350-qccakdcr7q3s5lecte2rq7jppictn1hc.apps.googleusercontent.com",
+        "android": "636490882350-m418t3u6lq353d8trbnl7kc4i7vionpk.apps.googleusercontent.com"
+      }
+    }
   }
 }

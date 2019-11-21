@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @expo/vector-icons@6.3.1
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js start
 
 PATH: 
   C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Users\unimp\Downloads\apache-maven-3.6.2\bin;C:\Program Files\MongoDB\Server\4.2\bin;C:\Program Files (x86)\Yarn\bin\;C:\Users\unimp\AppData\Local\Microsoft\WindowsApps;C:\Users\unimp\AppData\Local\atom\bin;C:\Users\unimp\AppData\Roaming\npm;C:\Users\unimp\AppData\Local\Microsoft\WindowsApps;C:\Users\unimp\AppData\Local\GitHubDesktop\bin;C:\Users\unimp\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\unimp\AppData\Local\Yarn\bin
@@ -14,7 +14,12 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\unimp\OneDrive\Documentos\Proyecto final MIR\client\petApp\node_modules\@babel\generator\node_modules\.bin'
+  SyntaxError: C:\Users\unimp\OneDrive\Documentos\Proyecto final MIR\client\petApp\package.json: Unexpected token } in JSON at position 217
+      at JSON.parse (<anonymous>)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Program Files (x86)\Yarn\lib\cli.js:304:30)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:315:13
 
 npm manifest: 
   {
@@ -24,11 +29,14 @@ npm manifest:
       "android": "expo start --android",
       "ios": "expo start --ios",
       "web": "expo start --web",
-      "eject": "expo eject"
+      "eject": "expo eject",
     },
     "dependencies": {
+      "@expo/vector-icons": "^10.0.0",
       "expo": "^35.0.1",
       "expo-asset": "~7.0.0",
+      "expo-constants": "~7.0.0",
+      "expo-facebook": "~7.0.0",
       "react": "16.8.3",
       "react-dom": "16.8.3",
       "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
@@ -898,7 +906,7 @@ Lockfile:
       lodash "^4.17.13"
       to-fast-properties "^2.0.0"
   
-  "@expo/vector-icons@^10.0.2":
+  "@expo/vector-icons@^10.0.0", "@expo/vector-icons@^10.0.2":
     version "10.0.6"
     resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-10.0.6.tgz#5718953ff0b97827d11dae5787976fa8ce5caaed"
     integrity sha512-qNlKPNdf073LpeEpyClxAh0D3mmIK4TGAQzeKR0HVwf14RIEe17+mLW5Z6Ka5Ho/lUtKMRPDHumSllFyKvpeGg==
@@ -2025,6 +2033,11 @@ Lockfile:
     integrity sha512-n9S6lsEfTAhLY+x/Yrtc1rvVUhuEF+CcSWr/reAIGtk35+PYrAKfV4pbetRtqX9tl947bJv7kBQX6jpwYpeIpQ==
     dependencies:
       ua-parser-js "^0.7.19"
+  
+  expo-facebook@~7.0.0:
+    version "7.0.0"
+    resolved "https://registry.yarnpkg.com/expo-facebook/-/expo-facebook-7.0.0.tgz#532b42d67ec91df051fa1f41ee8a1322154fba2b"
+    integrity sha512-R/ogRMxFqUCh08f575IR8aPy8q5463E5Sg/Ef7nasuqKKh1tEcVh4JoRXN3pEnZ9hivnRsXvJOchmPsy+L1upw==
   
   expo-file-system@~7.0.0:
     version "7.0.0"
