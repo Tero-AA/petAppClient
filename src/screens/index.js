@@ -9,6 +9,16 @@ import { NavigationService } from '../api/NavigationService';
 import { theme } from '../constants/theme';
 import TabBar from "../components/TabBar";
 
+const primaryHeader = {
+  headerStyle: {
+    backgroundColor: theme.color.redLightest,
+  },
+  headerTintColor: theme.color.white,
+  headerTitleStyle: {
+    fontWeight: '400',
+  },
+};
+
 const AuthNavigator = createStackNavigator(
   {
     Login: {
@@ -22,10 +32,22 @@ const AuthNavigator = createStackNavigator(
   },
 );
 
-const TabNavigator = createBottomTabNavigator({
-  Home: {
-    getScreen: () => require('./HomeScreen').default,
+const HomeStack = createStackNavigator(
+  {
+    Home: {
+      getScreen: () => require('./HomeScreen').default,
+    },
+    Category: {
+      getScreen: () => require('./CategoryScreen').default,
+    },
   },
+  {
+    navigationOptions: { ...primaryHeader },
+  },
+);
+
+const TabNavigator = createBottomTabNavigator({
+  Home: HomeStack,
   List: {
     getScreen: () => require('./ListScreen').default,
   },
@@ -43,9 +65,7 @@ const MainNavigator = createStackNavigator({
   Tab: TabNavigator,
 }, {
   navigationOptions: {
-    headerStyle: {
-      backgroundColor: theme.color.redLightest
-    }
+    header: null,
   }
 });
 
