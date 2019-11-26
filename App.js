@@ -1,11 +1,13 @@
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
 import { UtilityThemeProvider, Box } from 'react-native-design-utility'
+import { Provider } from "mobx-react/native";
 
 import Navigation from './src/screens';
-import { images } from './src/constants/images';
+import { images, tabBarIcons } from './src/constants/images';
 import { cacheImages } from "./src/utils/cacheImages";
 import { theme } from './src/constants/theme';
+import { store } from "./src/models";
 
 export default class App extends React.Component {
   state = {
@@ -17,7 +19,11 @@ export default class App extends React.Component {
   }
 
   cacheAssets = async () => {
-    const imagesAssets = cacheImages(Object.values(images));
+    const imagesAssets = cacheImages([
+      ...Object.values(images),
+      ...Object.values(tabBarIcons.active),
+      ...Object.values(tabBarIcons.inactive),
+    ]);
 
     await Promise.all([...imagesAssets]);
 
@@ -33,9 +39,11 @@ export default class App extends React.Component {
       )
     }
     return (
-      <UtilityThemeProvider theme={theme}>
-        <Navigation />
-      </UtilityThemeProvider>
+      <Provider {...store}>
+        <UtilityThemeProvider theme={theme}>
+          <Navigation />
+        </UtilityThemeProvider>
+      </Provider>
     );
   }
 }

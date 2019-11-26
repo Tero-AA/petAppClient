@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Text } from 'react-native-design-utility';
 import { TouchableOpacity, Alert, Animated } from 'react-native';
+import { inject, observer } from "mobx-react/native";
 
 
 import OnboardingLogo from '../commons/OnboardingLogo';
@@ -10,6 +11,7 @@ import { GoogleApi } from '../api/GoogleApi';
 
 const BoxAnimated = Animated.createAnimatedComponent(Box);
 
+@inject('currentUser')
 class LoginScreen extends React.Component {
   state = {
     opacity: new Animated.Value(0),
@@ -39,8 +41,8 @@ class LoginScreen extends React.Component {
   onGooglePress = async () => {
     try {
       const token = await GoogleApi.loginAsync();
-      console.log('token', token);
 
+      await this.props.currentUser.login(token, 'GOOGLE');
     } catch (error) {
       console.log('error', error);
 
@@ -64,7 +66,11 @@ class LoginScreen extends React.Component {
     const logoTranslate = this.state.position.interpolate({
       inputRange: [0, 1],
       outputRange: [150, 0],
-    })
+    });
+
+    console.log('props', this.props);
+
+
     return (
       < Box f={1} center bg="white">
         <BoxAnimated f={1} style={{
