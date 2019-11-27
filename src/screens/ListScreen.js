@@ -9,7 +9,7 @@ class ListScreen extends React.Component {
       < Box f={1} center>
         <StatusBar barStyle="light-content" />
         <Text>
-          List Screen
+          Esta zona esta en construcción, ¡Dispculpanos por la molestia!
         </Text>
       </Box >
     );

@@ -10,21 +10,27 @@ export const ProductModel = types.model('ProductModel', {
   kgPrice: types.number,
   cartQty: 0,
   inCart: false,
-}).actions(self => ({
-  incCartQty() {
-    self.cartQty += 1;
-  },
-  decCartQty() {
-    self.cartQty -= 1;
-  },
-  addToCart() {
-    store.shoppingCartStore.addProduct(self);
-    self.inCart = true;
-    self.incCartQty();
-  },
-  removeFromCart() {
-    store.shoppingCartStore.removeProduct(self);
-    self.inCart = false;
-    self.cartQty = 0;
-  }
-}));
+})
+  .views(self => ({
+    get totalPrice() {
+      return self.cartQty * self.unityPrice
+    }
+  }))
+  .actions(self => ({
+    incCartQty() {
+      self.cartQty += 1;
+    },
+    decCartQty() {
+      self.cartQty -= 1;
+    },
+    addToCart() {
+      store.shoppingCartStore.addProduct(self);
+      self.inCart = true;
+      self.incCartQty();
+    },
+    removeFromCart() {
+      store.shoppingCartStore.removeProduct(self);
+      self.inCart = false;
+      self.cartQty = 0;
+    }
+  }));

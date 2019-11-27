@@ -52,9 +52,6 @@ const TabNavigator = createBottomTabNavigator({
   List: {
     getScreen: () => require('./ListScreen').default,
   },
-  // Stores: {
-  //   getScreen: () => require('./StoresScreen').default,
-  // },
   Order: {
     getScreen: () => require('./OrderScreen').default,
   },

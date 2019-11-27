@@ -7,7 +7,13 @@ export const ShoppingCartStore = types.model('ShoppingCartStore', {
   .views(self => ({
     get totalProducts() {
       return self.products.length;
-    }
+    },
+    get totalAmount() {
+      return self.products.reduce((acc, current) => acc + current.totalPrice, 0);
+    },
+    get productList() {
+      return self.products.slice();
+    },
   }))
   .actions(self => ({
     addProduct(product) {

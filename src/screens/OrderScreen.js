@@ -9,7 +9,7 @@ class OrderScreen extends React.Component {
       < Box f={1} center>
         <StatusBar barStyle="light-content" />
         <Text>
-          Order Screen
+          Esta zona esta en construcción, ¡Dispculpanos por la molestia!
         </Text>
       </Box >
     );
