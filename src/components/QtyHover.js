@@ -37,13 +37,13 @@ class QtyHover extends Component {
 
   render() {
     const { opacity } = this.state;
-    const { qty } = this.props;
+    const { qty, containerStyle } = this.props;
     return (
       <BoxAnimated
         shadow={0}
         bg="white"
         position="absolute"
-        style={{ top: 10, right: 10, left: 10, zIndex: 99 }}
+        style={containerStyle}
         radius={6}
         o={opacity}
       >

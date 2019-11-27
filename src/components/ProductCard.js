@@ -124,6 +124,7 @@ class ProductCard extends Component {
             handleRemove={this.handleRemove}
             handleInc={this.handleInc}
             handleDec={this.handleDec}
+            containerStyle={{ top: 10, right: 10, left: 10, zIndex: 99 }}
           />
         )}
       </Box>
