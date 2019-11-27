@@ -11,7 +11,7 @@ import { GoogleApi } from '../api/GoogleApi';
 
 const BoxAnimated = Animated.createAnimatedComponent(Box);
 
-@inject('currentUser')
+@inject('authStore')
 class LoginScreen extends React.Component {
   state = {
     opacity: new Animated.Value(0),

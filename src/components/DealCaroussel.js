@@ -80,7 +80,7 @@ class DealCaroussel extends PureComponent {
         >
           {images.map((img, i) => (
             <Box key={i} position="relative">
-              <Image source={img} />
+              <Image source={img} style={styles.img} />
               <Box
                 position="absolute"
                 dir="row"
@@ -106,5 +106,12 @@ class DealCaroussel extends PureComponent {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  img: {
+    width: WIDTH,
+    height: 250,
+  },
+});
 
 export default DealCaroussel;
